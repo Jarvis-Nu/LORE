@@ -26,6 +26,7 @@ export default defineConfig(async ({ mode }) => {
 		);
 
 	return {
+		base: '/',
 		plugins: [
 			oxlintPlugin(),
 			isSlot &&
@@ -43,21 +44,16 @@ export default defineConfig(async ({ mode }) => {
 		build: {
 			target: "esnext",
 			sourcemap: true,
-			// minify: false,
-			// terserOptions: {
-			// compress: false,
-			// mangle: false,
-			// },
-			// rollupOptions: {
-			// 	output: {
-			// 		manualChunks: {
-			// 			"@dojoengine/core": ["@dojoengine/core"],
-			// 			"@dojoengine/sdk": ["@dojoengine/sdk"],
-			// 			"@cartridge/controller": ["@cartridge/controller"],
-			// 			starknet: ["starknet"],
-			// 		},
-			// 	},
-			// },
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						"@dojoengine/core": ["@dojoengine/core"],
+						"@dojoengine/sdk": ["@dojoengine/sdk"],
+						"@cartridge/controller": ["@cartridge/controller"],
+						starknet: ["starknet"],
+					},
+				},
+			},
 		},
 		server: {
 			proxy: {
@@ -67,6 +63,7 @@ export default defineConfig(async ({ mode }) => {
 				},
 			},
 			cors: false,
+			historyApiFallback: true,
 		},
 		resolve: {
 			alias: {
