@@ -8,7 +8,7 @@ const App = () => {
 		<BrowserRouter>
 			<Routes>
 				<Route path="/editor" element={<Editor />} />
-				<Route path="*" element={<Client />} />
+				<Route path="/" element={<Client />} />
 			</Routes>
 		</BrowserRouter>
 	);

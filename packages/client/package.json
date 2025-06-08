@@ -15,7 +15,7 @@
     "lint:ci:oxlint": "bunx oxlint -c ./.oxlintrc.json --import-plugin",
     "lint:oxlint": "bunx oxlint -c ./.oxlintrc.json --import-plugin --fix",
     "preview": "bunx vite preview --port 8080",
-    "start": "bunx serve dist -l 8080 --single"
+    "start": "bunx serve -s /dist --port 8080"
   },
   "dependencies": {
     "@cartridge/controller": "^0.7.13",
